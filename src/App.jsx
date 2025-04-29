@@ -5,9 +5,9 @@ import './App.css';
 import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
-
 import getBotResponse from './utils/getBotResponse';
 import { quizQuestions, getQuizQuestion, checkQuizAnswer } from './utils/quizLogic';
+import furiaLogo from './assets/furia-logo.png';
 
 function App() {
   const [messages, setMessages] = useState([
@@ -23,7 +23,6 @@ function App() {
     const userMessage = { sender: 'user', text: input };
     setMessages(prev => [...prev, userMessage]);
 
-    // Quiz ativo? Verifica a resposta
     if (isQuizActive) {
       const result = checkQuizAnswer(quizIndex, input);
       setMessages(prev => [...prev, { sender: 'bot', text: result.message }]);
@@ -49,7 +48,6 @@ function App() {
       return;
     }
 
-    // Começar quiz
     if (input.toLowerCase().includes('quiz')) {
       setIsQuizActive(true);
       setQuizIndex(0);
@@ -63,18 +61,23 @@ function App() {
       return;
     }
 
-    // 💬 Lógica padrão do chatbot
-    const botReply = getBotResponse(input);
-
-    setMessages(prev => [...prev, { sender: 'bot', text: botReply }]);
+    const response = getBotResponse(input);
+    setMessages(prev => [...prev, { sender: 'bot', text: response }]);
     setInput('');
   };
 
   return (
-    <div className="chat-container">
-      <h2>🐾 FURIA Chatbot</h2>
-      <ChatWindow messages={messages} />
-      <ChatInput input={input} setInput={setInput} handleSend={handleSend} />
+    <div className="chat-page">
+      <header className="chat-header">
+        <img src={furiaLogo} alt="FURIA" className="logo" />
+        <h1>FURIA Chatbot</h1>
+      </header>
+      <div className="page-wrapper">
+        <div className="chat-container">
+          <ChatWindow messages={messages} />
+          <ChatInput input={input} setInput={setInput} handleSend={handleSend} />
+        </div>
+      </div>
     </div>
   );
 }

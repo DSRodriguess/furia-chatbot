@@ -1,18 +1,16 @@
 import React from "react";
-import "../App.css";
+import furiaLogo from '../assets/furia-logo.png';
+import '../App.css';
 
 const MessageBubble = ({ sender, text }) => {
-  const getCurrentTime = () => {
-    const date = new Date();
-    const hours = String(date.getHours()).padStart(2, "0");
-    const minutes = String(date.getMinutes()).padStart(2, "0");
-    return `${hours}:${minutes}`;
-  };
+  const isBot = sender === 'bot';
 
   return (
-    <div className={`msg ${sender}`}>
-      <div className="msg-text">{text}</div>
-      <div className="msg-time">{getCurrentTime()}</div>
+    <div className={`msg-row ${isBot ? 'left' : 'right'}`}>
+      {isBot && <img src={furiaLogo} alt="bot-avatar" className="avatar" />}
+      <div className={`msg ${sender}`}>
+        {text}
+      </div>
     </div>
   );
 };
