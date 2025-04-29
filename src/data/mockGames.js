@@ -1,5 +1,3 @@
-// src/data/mockGames.js
-
 export const pastGames = [
     {
       date: "2025-04-25",

@@ -1,4 +1,3 @@
-// src/utils/getBotResponse.js
 import { pastGames, upcomingGames, liveGame } from "../data/mockGames";
 
 export default function getBotResponse(message) {
@@ -50,6 +49,15 @@ export default function getBotResponse(message) {
 
   if (msg.includes("quiz") || msg.includes("pergunta")) {
     return `🎯 Quiz: Qual jogador da FURIA é conhecido como IGL e foi destaque na LG/SK?\nA) arT\nB) KSCERATO\nC) FalleN`;
+  }
+
+  // 🔁 Respostas simples (que estavam no responses.js)
+  if (msg.includes("furia")) {
+    return "FURIA é um dos maiores times de CS:GO do Brasil! 🇧🇷🔥";
+  }
+
+  if (msg.includes("cs")) {
+    return "O time de CS da FURIA está sempre competindo nos maiores campeonatos.";
   }
 
   return "😅 Não entendi. Tente perguntar sobre o elenco, próximos jogos, ranking ou mande um grito de torcida!";
