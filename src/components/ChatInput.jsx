@@ -1,5 +1,3 @@
-// src/components/ChatInput.jsx
-import React from 'react';
 import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 
