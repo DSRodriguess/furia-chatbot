@@ -6,7 +6,8 @@ import './App.css';
 import 'primereact/resources/themes/lara-light-indigo/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
-import mockResponses from './data/responses';
+
+import getBotResponse from './utils/getBotResponse';
 
 function App() {
   const [messages, setMessages] = useState([
@@ -18,13 +19,9 @@ function App() {
     if (!input.trim()) return;
     const userMessage = { sender: 'user', text: input };
 
-    const botResponse = Object.entries(mockResponses).find(([keyword]) =>
-      input.toLowerCase().includes(keyword)
-    );
-
     const botMessage = {
       sender: 'bot',
-      text: botResponse ? botResponse[1] : 'Não entendi 😅 Tente perguntar de outro jeito!',
+      text: getBotResponse(input),
     };
 
     setMessages([...messages, userMessage, botMessage]);
