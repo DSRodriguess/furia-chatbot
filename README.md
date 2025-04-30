@@ -49,9 +49,11 @@ furia-chatbot/
 ├── src/
 │   ├── assets/            # Imagens e logos (ex: logo da FURIA)
 │   ├── components/        # ChatInput, ChatWindow, MessageBubble
+│   ├── data/              # Dados mock dos jogos
 │   ├── utils/             # Lógica de respostas e quiz
 │   ├── App.jsx            # Componente principal
 │   ├── App.css            # Estilo global
+
 ├── README.md
 ├── package.json
 ```
