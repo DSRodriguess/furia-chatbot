@@ -1,44 +1,127 @@
+
 # FURIA Chatbot
 
-O FURIA Chatbot é uma aplicação interativa criada para os fãs do time de CS:GO da FURIA. O bot oferece informações ao vivo sobre jogos, ranking, elenco, gritos de torcida e um quiz interativo para testar seus conhecimentos sobre o time.
+O **FURIA Chatbot** é uma aplicação interativa criada para os fãs do time de CS:GO da FURIA. O bot oferece respostas personalizadas, informações ao vivo sobre jogos, calendário, elenco, gritos de torcida e um quiz divertido para testar seus conhecimentos sobre o time.
 
-## Funcionalidades
+## ✨ Funcionalidades
 
-- **Informações ao vivo**: status do último jogo, próximo jogo e status de jogo ao vivo.
-- **Calendário de jogos**: exibe os próximos jogos da FURIA.
-- **Quiz**: um quiz interativo sobre a FURIA para testar o seu conhecimento.
-- **Gritos de torcida**: manda frases motivacionais para os fãs.
-- **Ranking e títulos**: informações sobre a posição atual da FURIA no ranking e seus títulos.
+- **📊 Informações ao vivo**: Último resultado, status do jogo atual e próximo confronto.
+- **🗓️ Calendário de jogos**: Exibe os próximos jogos da FURIA.
+- **🎯 Quiz temático**: Perguntas sobre a história e os jogadores da FURIA.
+- **📣 Gritos de torcida**: Frases motivacionais para os fãs.
+- **🏆 Ranking e títulos**: Dados atualizados sobre conquistas e posição no ranking.
 
-## Como executar o projeto
+## 🧪 Demonstração
 
-### Requisitos
-Antes de começar, você precisa ter o [Node.js](https://nodejs.org/) instalado na sua máquina.
+Confira o vídeo demonstrativo do chatbot em funcionamento:
 
-### Passos
+[🎥 Assistir ao vídeo de apresentação](https://link-do-video.com)
 
-1. Clone o repositório para sua máquina:
+## 🚀 Como executar o projeto
 
-    ```bash
-    git clone https://github.com/DSRodriguess/furia-chatbot.git
-    ```
+### Pré-requisitos
 
-2. Navegue até a pasta do projeto:
+Você precisa ter o [Node.js](https://nodejs.org/) instalado.
 
-    ```bash
-    cd furia-chatbot
-    ```
+### Passo a passo
 
-3. Instale as dependências:
+```bash
+# Clone o repositório
+git clone https://github.com/DSRodriguess/furia-chatbot.git
 
-    ```bash
-    npm install
-    ```
+# Acesse a pasta do projeto
+cd furia-chatbot
 
-4. Execute a aplicação:
+# Instale as dependências
+npm install
 
-    ```bash
-    npm start
-    ```
+# Inicie o servidor de desenvolvimento
+npm start
+```
 
-5. Acesse o chat em `http://localhost:3000`.
+Abra o navegador e acesse: `http://localhost:3000`
+
+## 🧩 Estrutura do Projeto
+
+```
+furia-chatbot/
+├── public/
+├── src/
+│   ├── assets/            # Imagens e logos (ex: logo da FURIA)
+│   ├── components/        # ChatInput, ChatWindow
+│   ├── utils/             # Lógica de respostas e quiz
+│   ├── App.jsx            # Componente principal
+│   ├── App.css            # Estilo global
+├── README.md
+├── package.json
+```
+
+## 🧠 Lógica do Chat e Quiz
+
+### 🔁 getBotResponse
+
+Esta função recebe a mensagem do usuário e retorna a resposta apropriada. Pode identificar termos como "último jogo", "próximo jogo", "ranking", "grito", "quiz", entre outros.
+
+```javascript
+export default function getBotResponse(message) {
+  const msg = message.toLowerCase();
+
+  if (msg.includes("último jogo")) {
+    return `🄹 Último jogo: FURIA venceu XYZ...`;
+  }
+
+  // Outros comandos personalizados
+}
+```
+
+### 🎮 Quiz
+
+```javascript
+export const quizQuestions = [
+  {
+    question: "Quem é o IGL da FURIA?",
+    options: ["arT", "FalleN", "KSCERATO"],
+    correctAnswer: "arT",
+  },
+  // outras questões
+];
+
+export function getQuizQuestion(index) {
+  return quizQuestions[index].question;
+}
+
+export function checkQuizAnswer(index, answer) {
+  const question = quizQuestions[index];
+  return {
+    correct: answer.toLowerCase() === question.correctAnswer.toLowerCase(),
+    message: question.correctAnswer.toLowerCase() === answer.toLowerCase()
+      ? "Resposta correta! 🎉"
+      : "Resposta errada. Tente novamente! 😅",
+  };
+}
+```
+
+## 🛠 Tecnologias Utilizadas
+
+- [React.js](https://reactjs.org/)
+- [Vite](https://vitejs.dev/)
+- [PrimeReact](https://primereact.org/)
+- JavaScript (ES6+)
+- CSS moderno
+
+## 🤝 Contribuindo
+
+1. Faça um **fork** do repositório
+2. Crie sua branch:
+
+```bash
+git checkout -b minha-nova-funcionalidade
+```
+
+3. Commit suas alterações
+4. Envie um pull request 🚀
+
+
+## 👤 Autor
+
+Desenvolvido por [@DSRodriguess](https://github.com/DSRodriguess)
