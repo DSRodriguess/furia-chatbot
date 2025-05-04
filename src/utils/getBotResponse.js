@@ -5,7 +5,7 @@ export default function getBotResponse(message) {
 
   if (msg.includes("último jogo")) {
     const game = pastGames[0];
-    return `🄹 Último jogo: FURIA ${game.result} contra ${game.opponent} por ${game.score} no ${game.tournament}.`;
+    return `Último jogo: FURIA ${game.result} contra ${game.opponent} por ${game.score} no ${game.tournament}.`;
   }
 
   if (msg.includes("próximo jogo")) {
