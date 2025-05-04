@@ -15,7 +15,7 @@ O **FURIA Chatbot** é uma aplicação interativa criada para os fãs do time de
 
 Confira o vídeo demonstrativo do chatbot em funcionamento:
 
-[🎥 Assistir ao vídeo de apresentação](https://link-do-video.com)
+[🎥 Assistir ao vídeo de apresentação](https://www.youtube.com/watch?v=NfXlC9MFY6w)
 
 ## 🚀 Como executar o projeto
 
